@@ -1,0 +1,157 @@
+Revision 1.2.1 2008/03/14 13:47:00 dlatimer
+updated TOC to have title "Table of Contents"
+updated TOC to have chapters be formatted "Chapter X:   Blah"
+
+Revision 1.1.1.1  2003/11/12 19:13:56  boyoon
+imported version
+
+Revision 1.2  2003/07/16 17:35:55  gerkey
+updated uscthesis
+
+Revision 1.16  2003/07/16 17:25:17  gerkey
+changed version num
+
+Revision 1.15  2003/07/12 04:28:48  gerkey
+made prefacesection titles left-justified, rather than centered
+
+Revision 1.14  2003/06/12 23:30:55  gerkey
+added proquest package
+
+Revision 1.13  2003/06/12 20:00:20  gerkey
+foo
+
+Revision 1.12  2003/06/12 17:23:11  gerkey
+foo
+
+Revision 1.11  2003/04/28 23:41:05  gerkey
+fixed spacing between Copyright and author name
+
+Revision 1.10  2003/04/28 23:33:55  gerkey
+took out incorrect documentation
+
+Revision 1.9  2002/08/30 19:43:04  gerkey
+slight changes
+
+Revision 1.8  2002/08/30 19:24:38  gerkey
+removed extra inter-chapter spacing in LOF and LOT by redefining report.cls's
+\chapter command.
+
+Revision 1.7  2002/08/30 17:55:55  gerkey
+changed (fixed) page margins and used \setstretch{2.0} to get "real"
+double-spacing, per Yaser's comments.  except for spacing in lof and lot,
+we're in compliance with 2002 guidelines.
+
+Revision 1.6  2002/08/27 19:47:38  gerkey
+made the following fixes:
+  - body uses true doublespacing
+  - listoffigures and listoftables entries are singlespaced, with
+      doublespacing between entries
+  - cover page re-formatted to match guidelines
+
+Revision 1.5  2002/08/19 18:49:15  gerkey
+fixed two user-reported bugs in order to adhere to the 2002 guidelines:
+
+  - Submission date on cover is now normal, not bold
+
+  - Copyright notice on cover is now not centered; rather the "Copyright 2002"
+    is on the left, and the author name is on the right.
+
+Revision 1.4  2001/11/08 22:19:37  gerkey
+changed comments and docs
+
+Revision 1.3  2001/11/08 01:25:29  gerkey
+rejigged to start from v.2.3
+
+Revision 3.0  2001/11/07  16:47:08  brian gerkey (gerkey@usc.edu)
+Converted from a LaTeX 2.09 style to a LaTeX2e package
+
+    - AFAIK, there are no changes to style, layout, or default options;
+        just some hacking to adhere to the LaTeX2e package interface.
+
+    - Usage is now as follows:
+        \documentclass{report}
+        \usepackage[<options>]{USCthesis}
+        \begin{document}
+     <options> can be any of the old options (e.g., proposal, fussy),
+     as documented below.
+
+Added some comments.  And corrected some spelling.
+
+Revision 2.3  92/08/13  14:22:21  sdc
+Added \universityname for easy use outside USC.  Also the
+\if@techreport switch can be used to turn off the one-side-only
+warning message (for better interface with the techreport style
+option).  Placed a check for TeX-3.0 to allow an old TeX to work
+without warnings.  Cleaned-up the code and comments a little.
+
+Revision 2.2  92/06/29  10:59:15  sdc
+Added standard file header for style.
+
+Revision 2.1  91/02/09  00:54:08  cochran
+Fixed bug in interaction with techreport.sty.
+
+Revision 2.0  91/01/03  16:12:48  cochran
+Merged divergent branches by cochran@iris.usc.edu (1.10) and by
+tli@almaak.usc.edu (1.11); these are common up to revision 1.8.
+Removed fix in 1.11 which added Reference List to the TOC since
+this is handled by the \references command.
+
+  Changes by tli@almaak.usc.edu:
+
+    1.11 (90/09/23) Change title font to 12pt.  Change author's
+    font to 12pt.  Fix Reference List so that it shows up in TOC.
+    Break the way that appendices show up in TOC.
+
+    1.10 (90/07/10) Added a hack to make it work with TeX 3.0.
+
+    1.9 (90/01/30) Make subsubsections show up with numbered
+    labels and in the TOC.
+
+  Changes by cochran@iris.usc.edu:
+
+    1.10 (90/12/29) Added commands and modified \title to allow
+      multiple volume dissertations.  Fixed bug which caused the
+      pagestyle of the TOC to be wrong if there were no
+      preceeding prefacesections.
+
+    1.9 (90/12/03)  Corrected title size to correspond to the
+      University Publications statement that the "Title must be
+      the same size as `FACULTY OF ...' and no bold print.  Also
+      added an optional argument to the \pageleft command to
+      allow the fine tuning of the gutter margin in the
+      techreport style option.
+
+Revision 1.8  89/09/15  19:39:11  tli
+Change spacing in accordance with University Publications.
+
+Revision 1.7  89/01/27  13:56:04  tli
+Too much space after a saying.
+
+Revision 1.6  89/01/26  14:01:20  tli
+Added the saying environment.
+
+Revision 1.5  88/11/02  10:42:47  cochran
+Minor corrections and removal of unnecessary \makeatletter and
+\makeatother.
+
+Revision 1.4  88/10/20  11:58:38  cochran
+Updated to allow the user more control over spacing to the "blue
+lines," and to be in accordance with the USC Regulations for
+Format and Presentation of Theses and Dissertations, published
+March 1987.
+
+Revision 1.3  88/03/16  10:49:19  cochran
+Several small updates to \committee as suggested by peng@USC-IRIS.
+
+Revision 1.1  88/03/05  20:04:51  cochran
+Set penalties, and new margin and page sizes.  Fixed bug which
+caused a wrong contents page for long lists of figures or tables.
+
+Revision 1.0  87/03/05  18:29:34  cochran
+Created by combining the best (?) features of the dissertation
+styles written by Herb Barad @ USC-SIPI and Howard Trickey @
+Stanford University.
+
+NOTE:  This style assumes the existance of Stephen Page's
+      `doublespace' package in addition to the standard
+      LaTeX `report' document class.

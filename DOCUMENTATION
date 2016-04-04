@@ -1,0 +1,162 @@
+This style file modifies the standard report class to follow the
+"USC Regulations for Format and Presentation of Theses and
+Dissertations" (July 1989) document published by the Office of
+University Publications.
+
+The following options are available for use in the
+\usepackage[<options>]{USCthesis} (other formatting options,
+such as specifying the base typesize, should be given as
+\documentclass[<options>]{report})
+
+   `dissertation' (default), or `thesis' title page.
+
+   `final' (default) or `proposal' layout.
+
+   `copyright' (default) or `nocopyright' message on title page.
+     This affects the `final' layout only.
+
+   `fussy' (default) or `sloppy' word spacing.  This affects the
+     alignment at the right margin.  Fussy will sometimes write
+     over the blue line but is very useful for finding problem
+     areas during the development of the thesis.  Sloppy will
+     insure that no line passes the right margin, but may need
+     to over stretch the line and thus generate an underfilled
+     hbox message.
+
+   `clref' (default) or `opref' to set the open or closed format
+     of the entries in the references section.
+
+   `flushbottom' (default) or `raggedbottom' to make text either flush
+     or ragged at the bottom of each page.
+
+The following may be set PRIOR to the \begin{document} in order
+to make adjustments to fit the text in the "blue lines".  The
+values listed below are the defaults:
+
+   \pagetop{1.1 true in}    % 1 inch plus allowance
+   \pageleft{1.6 true in}   % 1.5 inches plus allowance
+   \pageheight{8.5 true in} % 9 inches minus allowance
+   \pagewidth{5.85 true in}  % 6 inches minus allowance
+   \pagemargin{2.0}          % Number of (unstretched) lines
+                             %   between text and page number
+   \setstretch{1.3}          % Set the "double" spacing
+
+These values vary according to the printer being used (even
+different instances of the same brand will transfer the paper
+just a little differently).  The best way to adjust them is to
+run three or four pages of the "blue line" paper through the
+printer that will be used.  Choose pages with full amount of
+text.  Then adjust the \pageleft (and \pagewidth if necessary) by
+the average amount necessary over the pages.  Next do the same
+for \pagetop and \pageheight.  Leave enough allowance to allow
+for the paper to shift a little, usually a little more in the
+direction of travel.  Set the \pagemargin and \setstretch to
+values that look good and will pass the reviewer.
+
+The following commands control what goes on the title page.
+
+   \title[volume]{thesis title}
+           - The thesis title is set using the \title command.
+             The optional volume parameter allows the
+             specification of the volume on the title page for
+             long papers which are divided.
+
+   \author{author's full name}
+           - Authors name.
+
+   \universityname{UNIVERSITY OF SOUTHERN CALIFORNIA}
+           - The university's name (the above is the default).
+
+   \schoolname{name of the school granting the degree}
+           - "GRADUATE SCHOOL" is the default.  Changing this
+             also has the effect of turning off the \majorfield
+             entry.  This affects the `final' layout only.
+
+   \degree{degree name}
+           - defaults to "Master of Science" or "Doctor of
+             Philosophy" depending on whether the `thesis' or
+             `dissertation' option is in effect.  This affects
+             the `final' layout only.
+
+   \majorfield{author's major}
+           - "Electrical Engineering" if omitted.  Changing the
+             \schoolname has the effect of turning off the
+             display of the major field.  If you specify this
+             command after changing the \schoolname, both will be
+             shown on the titlepage.  This affects the `final'
+             layout only.
+
+   \committee{name1\\* name2\\* name3}
+           - Currently this in only used on with the `proposal'
+             option, since the signature page MUST be the one
+             supplied by the University.  This affects the
+             `proposal' layout only.
+
+   \submitdate{month & year in which submitted to Graduate School}
+           - current month & year if omitted.
+
+   \copyrightyear{year degree conferred (next year if submitted in Dec.)}
+           - current year (or next year, in December) if omitted.
+             This affects only the `final' layout and only when
+             the `copyright' option is in effect.
+
+The PREFACE environment prints the titlepage and sets up the page
+formatting for the preface pages.  To create a preface section
+use the command:
+
+   \prefacesection[optional TOC name]{name}
+
+To generate the Table of Contents, and the Lists of Tables and
+Figures, use the commands:
+
+   \tableofcontents[CONTENTS]
+   \listoftables[LIST OF TABLES]
+   \listoffigures[LIST OF FIGURES]
+
+the bracketed names are used at the top of the sections and in
+the Table of Contents for the tables and figures.
+
+When multiple volumes are present (as indicated by the use of the
+optional argument of the \title command), the Table of Contents
+may be augmented by specifying the name of the other parts of the
+document with the command:
+
+   \addvolumecontents[toc]{volumename}
+
+This command should be placed right after the \begin{document}
+command to include prior volumes, and just before the
+\end{document} command to include the contents of later volumes.
+By default (if the optional [] section is ommited) it reads in
+the volumename.toc file (if present).  Using [lof] or [lot] work
+in the same way for the lists of figures and tables respectively.
+
+To start the document at a page other than 1 (for later volumes)
+you can use the command:
+
+   \startingpagenumber{1}{1}
+
+prior to the \begin{preface} command.  The first argument is the
+page number of the titlepage and subsequent pages numbered with
+roman numerals and the second is the number of the first page
+after the preface section. The defaults are shown above.
+
+To include a reference section, use the following command:
+
+   \references*[Reference List]{style}{bibfile(s)}
+
+where the `*' is optional and indicates that you DO NOT want this
+section to appear in the Table-of-Contents.  "Reference List" is
+the default name if the optional `[]' section of the command is
+not specified (the USC Regulations suggest either `Reference
+List' or `Bibliography').  Both of the remaining entries MUST be
+specified.  {Style} is any of "plain", "unsrt", "alpha", "abbrv"
+(or other *.bst format file).  The {bibfile(s)} are a list of one
+or more *.bib filenames from which the references are to be taken.
+
+The `saying' environment is used to set a cutesy little quotation
+at the start of the chapter, just after the chapter head.  To use:
+
+   \begin{saying}
+       If this exercise isn't just a joke, the title of \\
+       this appendix is a lie.
+   \end{saying}
