@@ -1,0 +1,22 @@
+*.pdf
+
+# Core latex/pdflatex auxiliary files
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+## Intermediate documents
+*.dvi
+*-converted-to.*
+## Bibliography auxiliary files (bibtex/biblatex/biber)
+*.bbl
+*.bcf
+*.blg
+*-blx.aux
+*-blx.bib
+*.brf
+*.run.xml

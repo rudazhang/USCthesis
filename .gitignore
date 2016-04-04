@@ -1,0 +1,19 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Trashes
+
+# Packages
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.tar
+*.zip
+
+# Never track automatic backup and buffer, anywhere in a git repo.
+*~
+\#*
