@@ -12,7 +12,7 @@
 % Packages required by `USCthesis.sty`.
 \usepackage{setspace}
 \usepackage{tabularx}
-% Filler text for formatting.
+% Filler text for formatting. Comment these lines out for real writing.
 \usepackage[english]{babel}
 \usepackage{blindtext}
 
@@ -55,6 +55,7 @@
 
   % Acknowledgement Page, which is also unnecessary for proposals.
   \prefacesection{Acknowledgements}
+    % Better to separate LaTeX structure and content
     \input{acknowledgements.tex}
 
   \tableofcontents
@@ -70,14 +71,17 @@
 %	CONTENT STRUCTURE
 %-----------------------------------------------------------------------------
 
+% Better to separate LaTeX structure and content
 \include{Introduction}
+
 % Research Topic 1
 \include{ResearchTopic1}
+
 % More Research Topics
 % \include{ResearchTopic2}
+
 % Conclusion and ongoing work
 \include{Conclusion}
-
 
 \begin{singlespace}
   % Bibliography

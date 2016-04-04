@@ -15,10 +15,20 @@ This repository is based on Gerkey's work and aims at making the updated templat
 
 ## Repository Manifest
 
-- [USCthesis.sty](USCthesis.sty): LaTeX package
-- [main.tex](main.tex): main LaTeX file for dissertation structure.
+- [tex](./tex): LaTeX template
+  - [USCthesis.sty](tex/USCthesis.sty): LaTeX package
+  - [main.tex](tex/main.tex): main LaTeX file for dissertation structure.
+  - [references.bib](tex/references.bib): sample bibliography file.
+  - Other `.tex` files are sample content files referenced by `main.tex`.
+- [layouts](./layouts): Sample layouts generated from template.
+  - [final-layout.pdf](layouts/final-layout.pdf): dissertation layout
+  - [proposal-layout.pdf](layouts/proposal-layout.pdf): dissertation proposal layout, for qualifying exams.
 - [DOCUMENTATION](DOCUMENTATION): Documentation maintained by Cochran.
 - [VERSIONS.log](VERSIONS.log): LaTeX log file of package revisions, 1987-2008.
+
+## TODO
+
+Document on other possible uses of the `USCthesis` package.
 
 ## License
 
