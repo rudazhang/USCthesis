@@ -45,22 +45,23 @@
 % The preface environment prints the title page.
 \begin{preface}
 
-% Dedication Page.
-\prefacesection{Dedication}
-  This dissertation is dedicated . . .
-   \begin{quote}
-       \raggedleft {\em To x, y}\\
-       \raggedleft {\em and especially to z.}
-   \end{quote}
+  % Dedication Page, which is truly unnecessary.
+  \prefacesection{Dedication}
+    This dissertation is dedicated . . .
+     \begin{quote}
+         \raggedleft {\em To x, y}\\
+         \raggedleft {\em and especially to z.}
+     \end{quote}
 
-% Acknowledgement Page omitted for now.
-\prefacesection{Acknowledgements}
-  \input{acknowledgements.tex}
+  % Acknowledgement Page, which is also unnecessary for proposals.
+  \prefacesection{Acknowledgements}
+    \input{acknowledgements.tex}
 
   \tableofcontents
   \listoftables
   \listoffigures
 
+  % Abstract Page
   \prefacesection{Abstract}
     \input{abstract.tex}
 \end{preface}
