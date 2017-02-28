@@ -1,6 +1,6 @@
 # USC Dissertation/Thesis LaTeX Template
 
-LaTeX document-style for typesetting Theses or Dissertations in accordance with the University of Southern California Regulations for [Format and Presentation of Theses and Dissertations](https://www.usc.edu/schools/GraduateSchool/current_thesis_dissert_05.html).
+LaTeX document-style for typesetting Theses or Dissertations in accordance with the University of Southern California Regulations for [Format and Presentation of Theses and Dissertations](http://graduateschool.usc.edu/current-students/thesis-dissertation-submission/guidelines-for-format-and-presentation/).
 It provides some alternative "bells and whistles" such as support for multi-volume documents.
 
 ## History
