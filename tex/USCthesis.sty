@@ -693,12 +693,12 @@
 %%
 %% Redefine the report.sty `Bibliography' as a `Reference List' chapter.
 %%
-\def\bibliographystyle#1{%   But first, turn off standard bib commands.
-  \@latexerr{\string\bibliographystyle\space is undefined.
-         Use \string\references{#1}{bibfile list}}\@eha}
-\def\bibliography#1{%
-  \@latexerr{\string\bibliography\space is undefined.
-         Use \string\references{bibstyle}{#1}}\@eha}
+% \def\bibliographystyle#1{%   But first, turn off standard bib commands.
+%   \@latexerr{\string\bibliographystyle\space is undefined.
+%          Use \string\references{#1}{bibfile list}}\@eha}
+% \def\bibliography#1{%
+%   \@latexerr{\string\bibliography\space is undefined.
+%          Use \string\references{bibstyle}{#1}}\@eha}
 
 \def\references{%
   \@ifstar
