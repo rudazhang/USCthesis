@@ -41,6 +41,9 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{USCthesis}[2003/07/16 v3.2]
 
+\usepackage[hidelinks,hypertexnames=false]{hyperref}
+\providecommand\phantomsection{}
+
 %%
 %% Declare the dissertation style
 %%
@@ -395,7 +398,7 @@
     \fi                                %   and) title.  At USC, the signature
  \newpage                              %   page is not counted!
     \ifx\@volume\@empty\else % Add Volume ID to contents if present.
-      \addtocontents{toc}{\protect\contentsline{part}{\@volume}{}}%
+      \addtocontents{toc}{\protect\contentsline{part}{\@volume}{}{}}%
     \fi
   \end{singlespace}%
   \pagestyle{plain}}{%
@@ -514,7 +517,7 @@
   %\begin{center}%
     \section*{#2}%
   %\end{center}%
-  \addcontentsline{toc}{chapter}{#1}}
+  \addcontentsline{toc}{chapter}{#1}{}}
 
 %%
 %% Make the Table of Contents and Figures/Tables pages
@@ -530,19 +533,19 @@
   \@ifstar
     {\@ifnextchar [%
        {\@starspeciallist{lot}}%
-       {\@starspeciallist{lot}[List Of Tables]}}%
+       {\@starspeciallist{lot}[List of Tables]}}%
     {\@ifnextchar [%
        {\@speciallist{lot}}%
-       {\@speciallist{lot}[List Of Tables]}}}
+       {\@speciallist{lot}[List of Tables]}}}
 
 \def\listoffigures{%
   \@ifstar
     {\@ifnextchar [%
        {\@starspeciallist{lof}}%
-       {\@starspeciallist{lof}[List Of Figures]}}%
+       {\@starspeciallist{lof}[List of Figures]}}%
     {\@ifnextchar [%
        {\@speciallist{lof}}%
-       {\@speciallist{lof}[List Of Figures]}}}
+       {\@speciallist{lof}[List of Figures]}}}
 
 
 % redefine commands used to generate entries in lof and lot, in order to make
@@ -732,9 +735,12 @@
   \fi
   \@input{\jobname.bbl}}
 
-\def\@referencesname{Reference List}
+\def\@referencesname{References}
 
 \def\thebibliography#1{
+  \phantomsection
+  \addcontentsline{toc}{chapter}{\@referencesname}%
+  \markboth{\@referencesname}{\@referencesname}%
   \chapter*{\@referencesname\@mkboth{\@referencesname}{\@referencesname}}
   \list{[\arabic{enumi}]}{
     \settowidth\labelwidth{[#1]}
@@ -782,7 +788,7 @@
     \refstepcounter{chapter}
     \typeout{\@chapapp\space\thechapter.}
     \addtocontents{toc}{
-      \protect\contentsline{chapter}{Appendix \thechapter}{\relax}}
+      \protect\contentsline{chapter}{Appendix \thechapter}{\relax}{}}
     \addcontentsline{toc}{section}{##1}
     \chaptermark{##1}
     %\addtocontents{lof}{\protect\addvspace{10pt}}% Adds between-chapter space

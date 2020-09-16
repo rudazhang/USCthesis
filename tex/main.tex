@@ -3,29 +3,72 @@
 %-----------------------------------------------------------------------------
 
 % Use `report` class with `USCthesis` package (style file) by Brian P. Gerkey
-\documentclass{report}
+\documentclass[letterpaper,11pt]{report}
 % [options] can be any of these default/alternative flag:
 %   dissertation/thesis, final/proposal, copyright/nocopyright,
 %   fussy/sloppy, flushbottom/raggedbottom, clref/opref.
-\usepackage[proposal]{USCthesis}
+\usepackage[dissertation]{USCthesis}
 
 % Packages required by `USCthesis.sty`.
 \usepackage{setspace}
 \usepackage{tabularx}
+
+% My changes to adhere to guidelines
+\usepackage[margin=1in,footskip=.5in]{geometry}
+
+\doublespacing % Adjust line spacing according to USC graduate school guidelines
+
+% Things that don't have a fixed guideline
+\usepackage{mathptmx} % To set font to times
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{graphicx} % Loading the package
+% \usepackage[demo]{graphicx} % You can use the "demo" option while editing to avoid compiling figures
+\graphicspath{{./}{../}{figures/pdf}{../figures/pdf/}}  % You can add absolute paths as well 
+
+ 
+% Biblatex settings
+\usepackage[
+    style=nature,
+    sorting=none,
+    isbn=false,
+    url=false,
+    doi=true,
+    eprint=false,
+    date=year,
+    maxnames=6,
+    minnames=6
+]{biblatex}
+\addbibresource{references.bib}
+
+\AtEveryBibitem{\clearfield{eventtitle}} 
+\AtEveryCitekey{\clearfield{eventtitle}}
+\AtEveryBibitem{\clearfield{pagetotal}} 
+\AtEveryCitekey{\clearfield{pagetotal}}
+
+% TEMP
+% \usepackage[showframe]{geometry} % Temp, show margins
+% \usepackage{layout}  % Temp to show layout
+
 % Filler text for formatting. Comment these lines out for real writing.
 \usepackage[english]{babel}
 \usepackage{blindtext}
 
+
 \begin{document}
+
+% \layout  % Temp, to show layout
 
 %-----------------------------------------------------------------------------
 %	TITLE PAGE
 %-----------------------------------------------------------------------------
 
 % Volume name could be added as option, e.g. `[Volume I]`.
-\title{A Very Fancy Dissertation on Dissertation Writing}
+\title{\textbf{\Large{Writing a thesis at USC}}}
 
-\author{Ruda Zhang}
+\author{Tommy T. Trojan}
 
 % Committee list is only shown in `proposal` layout.
 \committee{A.~Adams & (Chair)\\*
@@ -35,8 +78,11 @@
            E.~Emory & (Outside Member)}
 
 % Submission information is only shown in `final` layout.
-\majorfield{Civil Engineering}
-\submitdate{April 2016}
+\majorfield{Electrical Engineering}
+\submitdate{December 2020}  % Must be one of the three dates allowed in the guideline
+
+% Make sure everything, specially your title page, exactly follows the guideline:
+% https://graduateschool.usc.edu/wp-content/themes/fictional-university-theme/assets/doc/Manuscript_Formatting_and_Documentation_Styles.pdf
 
 %-----------------------------------------------------------------------------
 %	PREFACE
@@ -46,20 +92,15 @@
 \begin{preface}
 
   % Dedication Page, which is truly unnecessary.
-  \prefacesection{Dedication}
-    This dissertation is dedicated . . .
-     \begin{quote}
-         \raggedleft {\em To x, y}\\
-         \raggedleft {\em and especially to z.}
-     \end{quote}
+  \prefacesection[Dedication]{}
+  \input{dedication.tex}
 
   % Acknowledgement Page, which is also unnecessary for proposals.
   \prefacesection{Acknowledgements}
-    % Better to separate LaTeX structure and content
-    \input{acknowledgements.tex}
+  \input{acknowledgements.tex}
 
   \tableofcontents
-  \listoftables
+  \listoftables   % Comment this if you don't have tables
   \listoffigures
 
   % Abstract Page
@@ -83,15 +124,24 @@
 % Conclusion and ongoing work
 \include{Conclusion}
 
-\begin{singlespace}
-  % Bibliography
-  \bibliographystyle{plain}
-  \bibliography{references}
+% Bibliography
+\phantomsection
+\addcontentsline{toc}{chapter}{References}%
+\markboth{References}{References}%
+\printbibliography[title=References]
 
-  \appendix
-  % Appendices
-  \include{appendix_proof}
-\end{singlespace}
+% Appendices
+%   \appendix
+\phantomsection
+\addcontentsline{toc}{chapter}{Appendices}%
+\markboth{Appendices}{Appendices}%
+\chapter*{Appendices}
+\renewcommand\thesection{\Alph{section}}
+\renewcommand*{\thesubsection}{\Alph{section}.\arabic{subsection}}
+\begingroup
+  \numberwithin{equation}{section}
+  \input{appendix_proof}
+\endgroup
 
 % In case your dissertation has multiple volumes.
 % \addvolumecontents{thesis_part2}
