@@ -1,35 +1,43 @@
-%-----------------------------------------------------------------------------
+% USC Dissertation/Thesis LaTeX Template
+% Edited by Ruda Zhang, 2020-10-08.
+% -----------------------------------------------------------------------------
 %	PACKAGES AND DOCUMENT CONFIGURATION
 %-----------------------------------------------------------------------------
 
 % Use `report` class with `USCthesis` package (style file) by Brian P. Gerkey
-\documentclass[letterpaper,11pt]{report}
+% Font size should be 11 or 12 points for regular paragraph text.
+\documentclass[letterpaper,12pt]{report}
 % [options] can be any of these default/alternative flag:
 %   dissertation/thesis, final/proposal, copyright/nocopyright,
 %   fussy/sloppy, flushbottom/raggedbottom, clref/opref.
 \usepackage[dissertation]{USCthesis}
 
 % Packages required by `USCthesis.sty`.
+\usepackage{hyperref}
 \usepackage{setspace}
 \usepackage{tabularx}
 
-% My changes to adhere to guidelines
+% Line spacing and margins in compliance with USC graduate school guidelines.
 \usepackage[margin=1in,footskip=.5in]{geometry}
+\doublespacing
 
-\doublespacing % Adjust line spacing according to USC graduate school guidelines
-
-% Things that don't have a fixed guideline
-\usepackage{mathptmx} % To set font to times
+% Optional packages: mathematical fonts and symbols
+% You may comment this section out if you don't need them.
+\usepackage{mathptmx} % set font to Times Roman
+\usepackage[OT1]{fontenc} % font encoding for xelatex
 \usepackage{mathtools}
 \usepackage{amsmath}
 \usepackage{amssymb}
 
-\usepackage{graphicx} % Loading the package
-% \usepackage[demo]{graphicx} % You can use the "demo" option while editing to avoid compiling figures
-\graphicspath{{./}{../}{figures/pdf}{../figures/pdf/}}  % You can add absolute paths as well 
+% Optional packages: graphics
+\usepackage{graphicx}
+% You can use the "demo" option while editing to avoid compiling figures.
+% \usepackage[demo]{graphicx}
+% You can add absolute paths as well.
+\graphicspath{{./}{../}{figures/}{../figures/}}
 
- 
-% Biblatex settings
+% Optional packages: bibliography with BibLaTeX.
+% Comment this section out if you prefer BibTeX.
 \usepackage[
     style=nature,
     sorting=none,
@@ -41,16 +49,11 @@
     maxnames=6,
     minnames=6
 ]{biblatex}
-\addbibresource{references.bib}
-
 \AtEveryBibitem{\clearfield{eventtitle}} 
 \AtEveryCitekey{\clearfield{eventtitle}}
 \AtEveryBibitem{\clearfield{pagetotal}} 
 \AtEveryCitekey{\clearfield{pagetotal}}
-
-% TEMP
-% \usepackage[showframe]{geometry} % Temp, show margins
-% \usepackage{layout}  % Temp to show layout
+\addbibresource{references.bib}
 
 % Filler text for formatting. Comment these lines out for real writing.
 \usepackage[english]{babel}
@@ -58,8 +61,6 @@
 
 
 \begin{document}
-
-% \layout  % Temp, to show layout
 
 %-----------------------------------------------------------------------------
 %	TITLE PAGE
@@ -78,7 +79,7 @@
            E.~Emory & (Outside Member)}
 
 % Submission information is only shown in `final` layout.
-\majorfield{Electrical Engineering}
+\majorfield{Civil Engineering}
 \submitdate{December 2020}  % Must be one of the three dates allowed in the guideline
 
 % Make sure everything, specially your title page, exactly follows the guideline:
@@ -93,19 +94,19 @@
 
   % Dedication Page, which is truly unnecessary.
   \prefacesection[Dedication]{}
-  \input{dedication.tex}
+  \input{dedication}
 
   % Acknowledgement Page, which is also unnecessary for proposals.
   \prefacesection{Acknowledgements}
-  \input{acknowledgements.tex}
+  \input{acknowledgements}
 
   \tableofcontents
-  \listoftables   % Comment this if you don't have tables
+  \listoftables   % Comment this out if you don't have tables
   \listoffigures
 
   % Abstract Page
   \prefacesection{Abstract}
-    \input{abstract.tex}
+  \input{abstract}
 \end{preface}
 
 %-----------------------------------------------------------------------------
@@ -124,14 +125,20 @@
 % Conclusion and ongoing work
 \include{Conclusion}
 
+% Using single-space for reference list.
+\begin{singlespace}
 % Bibliography
 \phantomsection
 \addcontentsline{toc}{chapter}{References}%
 \markboth{References}{References}%
+% If you use BibLaTeX
 \printbibliography[title=References]
+% If you use BibTeX
+% \bibliographystyle{plain}
+% \bibliography{references}
+\end{singlespace}
 
 % Appendices
-%   \appendix
 \phantomsection
 \addcontentsline{toc}{chapter}{Appendices}%
 \markboth{Appendices}{Appendices}%
@@ -139,8 +146,9 @@
 \renewcommand\thesection{\Alph{section}}
 \renewcommand*{\thesubsection}{\Alph{section}.\arabic{subsection}}
 \begingroup
-  \numberwithin{equation}{section}
-  \input{appendix_proof}
+\numberwithin{equation}{section}
+% Appendix source files
+\input{appendix_proof}
 \endgroup
 
 % In case your dissertation has multiple volumes.

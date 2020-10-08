@@ -17,3 +17,4 @@
 # Never track automatic backup and buffer, anywhere in a git repo.
 *~
 \#*
+tex/auto/
