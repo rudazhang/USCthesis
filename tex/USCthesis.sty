@@ -343,7 +343,7 @@
 \def\majorfield#1{%
   \gdef\@majorfield{#1}%
   \showmajorfieldtrue}
-\def\@majorfield{Electrical Engineering}
+\def\@majorfield{ELECTRICAL ENGINEERING} % Major field must also be all capital letters (2022)
 
 \def\committee#1{\gdef\@committee{#1}}
 \def\@committee{}
@@ -448,7 +448,8 @@
 %% Make the Dissertation titlepage
 %%
 \def\maketitle{%
-  \large  % title page should be 11pt or 12pt.  this should do.
+  % Removed based on corrections from the Graduate School (2022)
+  % \large  % title page should be 11pt or 12pt.  this should do.
   \begin{titlepage}%
     \setcounter{page}{0}%
     \null
@@ -463,7 +464,7 @@
       by%
       \vskip 0.5 true in
       {\begin{tabular}[t]{c}\@author\\*[.66 true in]%
-       \rule{5.0 true in}{0.025 true in}
+      %  \rule{5.0 true in}{0.025 true in} % Removed based on corrections from the Graduate School (2022)
        \end{tabular}%
        \par}
       \vskip 1.0 true in
@@ -472,7 +473,8 @@
       \else
         A Dissertation Presented to the%
       \fi\\%*[0.1 true in]%
-      FACULTY OF THE \@schoolname\\%*[0.1 true in]%
+      % Corrections required inserting "USC" so the line reads: "FACULTY OF THE USC GRADUATE SCHOOL" (2022)
+      FACULTY OF THE USC \@schoolname\\%*[0.1 true in]%
       \@university\\%*[0.1 true in]%
       In Partial Fulfillment of the\\%*[0.1 true in]%
       Requirements for the Degree\\%*[0.1 true in]%
